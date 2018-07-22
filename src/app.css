@@ -1,0 +1,18 @@
+.video-info {
+  padding: 10px;
+  margin: 0 0 10px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 100px 10px rgba(255, 255, 255, 0.1);
+}
+
+.video-info > div + div {
+  margin-top: 10px;
+}
+
+.video-info > .title {
+  font-size: 1.5em;
+}
+
+.video-info > .desc {
+  font-size: 0.9em;
+}
