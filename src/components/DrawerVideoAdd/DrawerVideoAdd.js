@@ -8,7 +8,7 @@ class DrawerVideoAdd extends React.Component {
       isOpened: props.isOpened || false,
       value: props.value || {
         title: "Some title",
-        url: "http://www.ggg.com",
+        id: "a8_e1yPzjV0",
         description:
           "when you use inline-blocks, to remove the margin just apply word-spacing: -3px; and letter-spacing: -3px; to the parent container and then revert these rules on inline-block elements with word-spacing: normal; and letter-spacing: normal;"
       }
@@ -68,11 +68,11 @@ class DrawerVideoAdd extends React.Component {
               />
             </div>
             <div className="input-group">
-              <label>Url</label>
+              <label>Id</label>
               <input
                 type="text"
-                value={value.url}
-                onChange={this._onInputChange.bind(this, "url")}
+                value={value.id}
+                onChange={this._onInputChange.bind(this, "id")}
               />
             </div>
             <div className="input-group">

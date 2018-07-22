@@ -17,6 +17,11 @@ class Playlist extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { items } = this.state;
+    this._onItemClick(items[0]);
+  }
+
   _drawerVideoAddSuccess(video) {
     const { items } = this.state;
 
