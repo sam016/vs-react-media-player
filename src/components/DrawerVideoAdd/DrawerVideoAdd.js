@@ -37,13 +37,13 @@ class DrawerVideoAdd extends React.Component {
 
   _onDone = () => {
     const fx = this.props.onSuccess;
+    this.setState({
+      isOpened: false
+    });
     if (typeof fx === "function") {
       console.log(this.state.value);
       fx(this.state.value);
     }
-    this.setState({
-      isOpened: false
-    });
   };
 
   _onCancel = () => {

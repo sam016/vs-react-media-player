@@ -9,17 +9,24 @@ class Playlist extends React.Component {
     this.state = {
       src: props.src || "",
       items: defaultList,
-      isDrawerOpened: false
+      isDrawerOpened: false,
+      keys: defaultList.reduce((p, n) => {
+        p[n.url] = n;
+        return p;
+      }, {})
     };
   }
 
   _drawerVideoAddSuccess(video) {
     const { items } = this.state;
+
+    // prevents same urls from getting inserted
+    if (video.url in this.state.keys) {
+      return;
+    }
+
     items.splice(0, 0, video);
     this.setState({ items });
-
-    const scrollingElement = document.scrollingElement || document.body;
-    scrollingElement.scrollTop = scrollingElement.scrollHeight;
   }
 
   _btnAddVideoClicked() {
@@ -28,9 +35,20 @@ class Playlist extends React.Component {
     });
   }
 
+  _onItemClick(video) {
+    const { onSelect } = this.props;
+    if (typeof onSelect === "function") {
+      onSelect(video);
+    }
+  }
+
   renderListItem(item) {
     return (
-      <li className="playlist-item" key={item.url}>
+      <li
+        className="playlist-item"
+        key={item.url}
+        onClick={this._onItemClick.bind(this, item)}
+      >
         <a href={`#${item.url}`}>
           <div className="img">
             <img />
